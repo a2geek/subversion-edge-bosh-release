@@ -1,0 +1,41 @@
+---
+name: csvn
+
+releases:
+- name: subversion-edge
+  version: 
+  url: 
+  sha1: 
+- name: "bpm"
+  version: "1.1.6"
+  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.1.6"
+  sha1: "5bad6161dbbcf068830a100b6a76056fe3b99bc8"
+
+instance_groups:
+- name: csvn
+  instances: 1
+  vm_type:   default
+  stemcell:  default
+  azs:       [z1]
+  networks:
+  - name:    default
+  persistent_disk: 2048
+  jobs:
+  - name:    csvn
+    release: subversion-edge
+    properties:
+      bpm:
+        enabled: true
+  - name: bpm
+    release: bpm
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 5000-60000
+  update_watch_time: 5000-60000
+
+stemcells:
+- alias: default
+  os: ubuntu-xenial
+  version: latest

@@ -1,0 +1,13 @@
+---
+name: csvn
+
+templates:
+  bpm.yml:   config/bpm.yml
+  ctl:       bin/ctl
+  pre-start: bin/pre-start
+
+packages:
+- openjdk-8
+- subversion-edge
+
+properties: {}

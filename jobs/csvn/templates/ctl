@@ -1,0 +1,7 @@
+#!/bin/bash
+
+JOB_PATH=/var/vcap/jobs/csvn
+
+cd ${JOB_PATH}/packages/subversion-edge
+source ${JOB_PATH}/packages/openjdk-8/bosh/runtime.env
+bin/csvn start

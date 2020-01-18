@@ -1,1 +1,6 @@
-name: subversion-edge-bosh
+---
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/blobs
+final_name: subversion-edge

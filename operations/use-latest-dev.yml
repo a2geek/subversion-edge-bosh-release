@@ -1,0 +1,7 @@
+# Used for development, allowing you to upload the release.
+---
+- type: replace
+  path: /releases/name=subversion-edge
+  value:
+    name: subversion-edge
+    version: latest
