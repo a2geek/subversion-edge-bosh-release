@@ -6,10 +6,6 @@ releases:
   version: 
   url: 
   sha1: 
-- name: "bpm"
-  version: "1.1.6"
-  url: "https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=1.1.6"
-  sha1: "5bad6161dbbcf068830a100b6a76056fe3b99bc8"
 
 instance_groups:
 - name: csvn
@@ -26,8 +22,6 @@ instance_groups:
     properties:
       bpm:
         enabled: true
-  - name: bpm
-    release: bpm
 
 update:
   canaries: 1

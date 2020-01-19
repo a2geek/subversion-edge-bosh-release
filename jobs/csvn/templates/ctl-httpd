@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# We use the PID file that Apache writes out.
+# Since CSVN manages the Apache configuration files, we cannot simply
+# provide our own (see monit file for pid location).
+
+RUN_DIR=/var/vcap/sys/run/csvn
+LOG_DIR=/var/vcap/sys/log/csvn
+
+case $1 in
+
+  start)
+    mkdir -p $LOG_DIR
+    chown -R vcap:vcap $LOG_DIR
+
+    cd /var/vcap/store/csvn
+
+    bin/csvn-httpd start \
+      >>  $LOG_DIR/csvn-httpd.stdout.log \
+      2>> $LOG_DIR/csvn-httpd.stderr.log
+
+    ;;
+
+  stop)
+    bin/csvn-httpd stop \
+      >>  $LOG_DIR/csvn-httpd.stdout.log \
+      2>> $LOG_DIR/csvn-httpd.stderr.log
+
+    ;;
+
+  *)
+    echo "Usage: ctl-httpd {start|stop}" ;;
+
+esac

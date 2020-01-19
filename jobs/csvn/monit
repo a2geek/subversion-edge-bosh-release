@@ -3,3 +3,9 @@ check process csvn
   start program "/var/vcap/jobs/csvn/bin/ctl start"
   stop program "/var/vcap/jobs/csvn/bin/ctl stop"
   group vcap
+
+check process csvn-httpd
+  with pidfile /var/vcap/store/csvn/data/run/httpd.pid
+  start program "/var/vcap/jobs/csvn/bin/ctl-httpd start"
+  stop program "/var/vcap/jobs/csvn/bin/ctl-httpd stop"
+  group vcap
