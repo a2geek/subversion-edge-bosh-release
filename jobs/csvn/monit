@@ -1,5 +1,5 @@
 check process csvn
-  with pidfile /var/vcap/sys/run/bpm/csvn/csvn.pid
-  start program "/var/vcap/jobs/bpm/bin/bpm start csvn"
-  stop program "/var/vcap/jobs/bpm/bin/bpm stop csvn"
+  with pidfile /var/vcap/sys/run/csvn/csvn.pid
+  start program "/var/vcap/jobs/csvn/bin/ctl start"
+  stop program "/var/vcap/jobs/csvn/bin/ctl stop"
   group vcap

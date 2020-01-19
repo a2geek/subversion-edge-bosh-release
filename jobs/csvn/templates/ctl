@@ -1,7 +1,39 @@
 #!/bin/bash
 
-JOB_PATH=/var/vcap/jobs/csvn
+RUN_DIR=/var/vcap/sys/run/csvn
+LOG_DIR=/var/vcap/sys/log/csvn
+PIDFILE=${RUN_DIR}/csvn.pid
 
-cd ${JOB_PATH}/packages/subversion-edge
-source ${JOB_PATH}/packages/openjdk-8/bosh/runtime.env
-bin/csvn start
+source /var/vcap/packages/openjdk-8/bosh/runtime.env
+source /var/vcap/packages/python-2.7/bosh/runtime.env
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    echo $$ > $PIDFILE
+
+    cd /var/vcap/store/csvn
+
+    bin/csvn console \
+      >>  $LOG_DIR/csvn.stdout.log \
+      2>> $LOG_DIR/csvn.stderr.log
+
+    ;;
+
+  stop)
+    bin/csvn stop \
+      >>  $LOG_DIR/csvn.stdout.log \
+      2>> $LOG_DIR/csvn.stderr.log
+
+    kill -9 `cat $PIDFILE`
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac

@@ -1,8 +1,7 @@
 ---
 name: subversion-edge
 
-dependencies:
-- openjdk-8
+dependencies: []
 
 files:
 - CollabNetSubversionEdge-5.2.2_linux-x86_64.tar.gz

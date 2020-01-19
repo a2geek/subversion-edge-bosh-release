@@ -1,5 +1,4 @@
 #!/bin/bash
 set -ex
 
-tar --directory=${BOSH_INSTALL_TARGET} -xzf CollabNetSubversionEdge-*.tar.gz --strip-components=1
-chmod +x ${BOSH_INSTALL_TARGET}/bin/*
+cp CollabNetSubversionEdge-*.tar.gz ${BOSH_INSTALL_TARGET}

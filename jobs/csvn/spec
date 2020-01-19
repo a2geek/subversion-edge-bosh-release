@@ -2,12 +2,12 @@
 name: csvn
 
 templates:
-  bpm.yml:   config/bpm.yml
-  ctl:       bin/ctl
-  pre-start: bin/pre-start
+  ctl:        bin/ctl
+  pre-start:  bin/pre-start
 
 packages:
 - openjdk-8
+- python-2.7
 - subversion-edge
 
 properties: {}
