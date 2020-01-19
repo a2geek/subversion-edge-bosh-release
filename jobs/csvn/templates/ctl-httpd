@@ -15,16 +15,21 @@ case $1 in
 
     cd /var/vcap/store/csvn
 
-    bin/csvn-httpd start \
-      >>  $LOG_DIR/csvn-httpd.stdout.log \
-      2>> $LOG_DIR/csvn-httpd.stderr.log
+    # Replace "Listen 80" with "Listen 18080"? Will CSVN see this?
+
+    bin/httpd -f /var/vcap/store/csvn/data/conf/httpd.conf -k start \
+      >>  $LOG_DIR/httpd.stdout.log \
+      2>> $LOG_DIR/httpd.stderr.log
 
     ;;
 
   stop)
-    bin/csvn-httpd stop \
-      >>  $LOG_DIR/csvn-httpd.stdout.log \
-      2>> $LOG_DIR/csvn-httpd.stderr.log
+
+    cd /var/vcap/store/csvn
+
+    bin/httpd -f /var/vcap/store/csvn/data/conf/httpd.conf -k stop \
+      >>  $LOG_DIR/httpd.stdout.log \
+      2>> $LOG_DIR/httpd.stderr.log
 
     ;;
 

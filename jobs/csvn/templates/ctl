@@ -15,19 +15,15 @@ case $1 in
 
     echo $$ > $PIDFILE
 
-    cd /var/vcap/store/csvn
-
-    bin/csvn console \
-      >>  $LOG_DIR/csvn.stdout.log \
-      2>> $LOG_DIR/csvn.stderr.log
+    cd /var/vcap/store/csvn/appserver
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/var/vcap/store/csvn/lib
+    java -Djetty.home=/var/vcap/store/csvn/appserver -Djetty.port=3343 -Djetty.ssl.port=4434 -jar start.jar \
+      >>  $LOG_DIR/jetty.stdout.log \
+      2>> $LOG_DIR/jetty.stderr.log
 
     ;;
 
   stop)
-    bin/csvn stop \
-      >>  $LOG_DIR/csvn.stdout.log \
-      2>> $LOG_DIR/csvn.stderr.log
-
     kill -9 `cat $PIDFILE`
     rm -f $PIDFILE
 
