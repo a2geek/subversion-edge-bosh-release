@@ -3,5 +3,6 @@ name: subversion-edge
 
 dependencies: []
 
+# see https://downloads-guests.open.collab.net/servlets/ProjectDocumentList
 files:
 - CollabNetSubversionEdge-5.2.2_linux-x86_64.tar.gz
