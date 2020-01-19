@@ -1,0 +1,5 @@
+# Set the Subversion Edge persistent disk.
+---
+- type: replace
+  path: /instance_groups/name=csvn/persistent_disk
+  value: ((csvn.disk_size))
