@@ -30,7 +30,7 @@ bosh -d csvn deploy manifest.yml
 
 | Operations File | Description |
 | --- | --- |
-| `operations/set-disk-size.yml` | Used to set a different disk size from the arbitratily chosen size of 10GiB. |
+| `operations/set-disk-size.yml` | Used to set a different disk size from the arbitratily chosen size of 2GiB. |
 
 ## Configuration variables
 
