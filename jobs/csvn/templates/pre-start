@@ -4,9 +4,13 @@ set -e
 SOURCE_PATH=/var/vcap/jobs/csvn/packages/subversion-edge
 TARGET_PATH=/var/vcap/store/csvn
 
-mkdir ${TARGET_PATH}
-pushd ${TARGET_PATH}
-  tar -xzf ${SOURCE_PATH}/CollabNetSubversionEdge-*.tar.gz --strip-components=1
-  chown -R vcap.vcap *
-  chmod +x bin/*
-popd
+# Only copy over once. We let the built-in upgrades occur.
+if [ ! -d ${TARGET_PATH} ]
+then
+  mkdir ${TARGET_PATH}
+  pushd ${TARGET_PATH}
+    tar -xzf ${SOURCE_PATH}/CollabNetSubversionEdge-*.tar.gz --strip-components=1
+    chown -R vcap.vcap *
+    chmod +x bin/*
+  popd
+fi
