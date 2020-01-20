@@ -7,6 +7,8 @@
 RUN_DIR=/var/vcap/sys/run/csvn
 LOG_DIR=/var/vcap/sys/log/csvn
 
+source /var/vcap/packages/python-2.7/bosh/runtime.env
+
 case $1 in
 
   start)
