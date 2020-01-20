@@ -3,9 +3,9 @@ name: csvn
 
 releases:
 - name: subversion-edge
-  version: "v2"
-  url: "https://github.com/a2geek/subversion-edge-bosh-release/releases/download/v2/subversion-edge-bosh-release.tgz"
-  sha1: "45b1ac15544aec4952d26290644246db70fc826b"
+  version: "v3"
+  url: "https://github.com/a2geek/subversion-edge-bosh-release/releases/download/v3/subversion-edge-bosh-release.tgz"
+  sha1: "b4ed328e798634c32b3d1fa9a8066768a96b5bba"
 
 instance_groups:
 - name: csvn
