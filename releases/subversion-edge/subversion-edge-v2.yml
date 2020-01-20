@@ -1,0 +1,29 @@
+name: subversion-edge
+version: v2
+commit_hash: 4d2c9ae
+uncommitted_changes: false
+jobs:
+- name: csvn
+  version: debb4bd5205fb76f674e79c98f9acbb29a80bda9bf86d3b1b4be2071c2b520a2
+  fingerprint: debb4bd5205fb76f674e79c98f9acbb29a80bda9bf86d3b1b4be2071c2b520a2
+  sha1: sha256:6edf1d15d0f854b99801da5c3a4eeead42976d621c201cb9d74e8c2ce8538915
+  packages:
+  - openjdk-8
+  - python-2.7
+  - subversion-edge
+packages:
+- name: openjdk-8
+  version: a512bdec1240e3002aa3a2ba61302f3a594d1d662867da00fbad67a4056557ff
+  fingerprint: a512bdec1240e3002aa3a2ba61302f3a594d1d662867da00fbad67a4056557ff
+  sha1: sha256:23f99cb136da1de601dcfc5792ba5e8e332ee01f50c6add097bcff6614f5c0b1
+  dependencies: []
+- name: python-2.7
+  version: 7063c9f4e43bf49374c2f6cc6c2f74a5467f2298
+  fingerprint: 7063c9f4e43bf49374c2f6cc6c2f74a5467f2298
+  sha1: bd130315766a7641dbd20aa328d16f084cc17965
+  dependencies: []
+- name: subversion-edge
+  version: 6f627b1c741e84b6f959531c8226ff82e13626e218605f4d1a6a4daf6ba7ffa6
+  fingerprint: 6f627b1c741e84b6f959531c8226ff82e13626e218605f4d1a6a4daf6ba7ffa6
+  sha1: sha256:7fcaff27d9625a146aeee9ba83a90958d0fd5c8bc84103896bfb28afc1a674f6
+  dependencies: []
