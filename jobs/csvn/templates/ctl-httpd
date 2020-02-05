@@ -4,7 +4,6 @@
 # Since CSVN manages the Apache configuration files, we cannot simply
 # provide our own (see monit file for pid location).
 
-RUN_DIR=/var/vcap/sys/run/csvn
 LOG_DIR=/var/vcap/sys/log/csvn
 
 source /var/vcap/packages/python-2.7/bosh/runtime.env
