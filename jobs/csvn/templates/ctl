@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# NOTE: PIDFILE is only used as a signal for Monit!
+
 RUN_DIR=/var/vcap/sys/run/csvn
 LOG_DIR=/var/vcap/sys/log/csvn
 PIDFILE=${RUN_DIR}/csvn.pid
@@ -24,7 +26,7 @@ case $1 in
     ;;
 
   stop)
-    kill -9 `cat $PIDFILE`
+    pkill --full "-Djetty.home"
     rm -f $PIDFILE
 
     ;;
