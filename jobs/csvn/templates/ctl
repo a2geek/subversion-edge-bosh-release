@@ -26,7 +26,7 @@ case $1 in
     ;;
 
   stop)
-    pkill --full "-Djetty.home"
+    pkill --full jetty.home
     rm -f $PIDFILE
 
     ;;
