@@ -5,4 +5,6 @@ builds:
     version: v3
   97ce3b9f-afb4-4358-52d4-51474ec58d17:
     version: v1
+  c21e43b7-a1f3-4e93-4f9e-5dd87c2c4681:
+    version: v4
 format-version: "2"
