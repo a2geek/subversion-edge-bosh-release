@@ -2,9 +2,10 @@
 name: csvn
 
 templates:
-  ctl:        bin/ctl
-  ctl-httpd:  bin/ctl-httpd
-  pre-start:  bin/pre-start
+  ctl:                bin/ctl
+  ctl-httpd:          bin/ctl-httpd
+  pre-start:          bin/pre-start
+  csvn_logging.conf:  config/csvn_logging.conf
 
 packages:
 - openjdk-8

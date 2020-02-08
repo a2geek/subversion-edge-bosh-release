@@ -16,7 +16,9 @@ case $1 in
 
     cd /var/vcap/store/csvn
 
-    # Replace "Listen 80" with "Listen 18080"? Will CSVN see this?
+    # Ensure the log files exist and for the user.
+    touch /var/vcap/sys/log/csvn/httpd.{error,access,subversion}.log
+    chown vcap.vcap /var/vcap/sys/log/csvn/httpd*.log
 
     bin/httpd -f /var/vcap/store/csvn/data/conf/httpd.conf -k start \
       >>  $LOG_DIR/httpd.stdout.log \

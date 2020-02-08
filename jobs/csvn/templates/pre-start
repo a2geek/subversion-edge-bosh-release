@@ -14,3 +14,5 @@ then
     chmod +x bin/*
   popd
 fi
+
+sed -i 's#data/conf/csvn_logging.conf#/var/vcap/jobs/csvn/config/csvn_logging.conf#g' /var/vcap/store/csvn/data/conf/httpd.conf
