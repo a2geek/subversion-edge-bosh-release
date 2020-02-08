@@ -18,6 +18,11 @@ case $1 in
     echo $$ > $PIDFILE
 
     cd /var/vcap/store/csvn/appserver
+
+    # Ensure the log files exist and owned for the vcap user.
+    touch /var/vcap/sys/log/csvn/jetty.{console,server}.log
+    chown vcap.vcap /var/vcap/sys/log/csvn/jetty*.log
+
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/var/vcap/store/csvn/lib
     java -Djetty.home=/var/vcap/store/csvn/appserver -Djetty.port=3343 -Djetty.ssl.port=4434 -jar start.jar \
       >>  $LOG_DIR/jetty.stdout.log \

@@ -16,7 +16,7 @@ case $1 in
 
     cd /var/vcap/store/csvn
 
-    # Ensure the log files exist and for the user.
+    # Ensure the log files exist and owned for the vcap user.
     touch /var/vcap/sys/log/csvn/httpd.{error,access,subversion}.log
     chown vcap.vcap /var/vcap/sys/log/csvn/httpd*.log
 

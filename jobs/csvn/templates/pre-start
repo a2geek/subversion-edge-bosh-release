@@ -4,7 +4,7 @@ set -e
 SOURCE_PATH=/var/vcap/jobs/csvn/packages/subversion-edge
 TARGET_PATH=/var/vcap/store/csvn
 
-# Only copy over once. We let the built-in upgrades occur.
+# Only copy over once. We let the built-in upgrades occur in place.
 if [ ! -d ${TARGET_PATH} ]
 then
   mkdir ${TARGET_PATH}
@@ -15,4 +15,9 @@ then
   popd
 fi
 
+# Patch in HTTPd log changes
 sed -i 's#data/conf/csvn_logging.conf#/var/vcap/jobs/csvn/config/csvn_logging.conf#g' /var/vcap/store/csvn/data/conf/httpd.conf
+
+# Patch in Jetty log changes
+sed -i 's#etc/jetty-requestlog.xml#/var/vcap/jobs/csvn/config/jetty-requestlog.xml#g' /var/vcap/store/csvn/appserver/start.ini
+sed -i 's#etc/jetty-logging.xml#/var/vcap/jobs/csvn/config/jetty-logging.xml#g' /var/vcap/store/csvn/appserver/start.ini
